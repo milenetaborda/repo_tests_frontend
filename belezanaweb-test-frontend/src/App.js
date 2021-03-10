@@ -1,9 +1,12 @@
-function App() {
+import React from 'react'
+import { Cart } from './pages/Cart'
+
+const App = () => {
   return (
-    <div >
-      Hello World
-    </div>
-  );
+    <>
+      <Cart />
+    </>
+  )
 }
 
-export default App;
+export default App
