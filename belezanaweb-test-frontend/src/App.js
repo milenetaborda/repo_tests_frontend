@@ -1,11 +1,15 @@
 import React from 'react'
-import { Cart } from './pages/Cart'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './routes'
+
+import GlobalStyle from './styles/global'
 
 const App = () => {
   return (
-    <>
-      <Cart />
-    </>
+    <BrowserRouter>
+      <Routes />
+      <GlobalStyle />
+    </BrowserRouter>
   )
 }
 
