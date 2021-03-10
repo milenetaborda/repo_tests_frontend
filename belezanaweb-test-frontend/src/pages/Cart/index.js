@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { Button } from '../../components/Button'
+import { Header } from '../../components/Header'
+import { SubTotalComponent } from '../../components/SubTotal'
 import api from '../../sevices/api'
 import { formatPrice } from '../../utils/format'
+import { Link } from 'react-router-dom'
 
-import { ContainerCart } from './styles'
+import { CartContainer } from './styles'
 
-function Cart() {
+const Cart = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -17,8 +21,8 @@ function Cart() {
   console.log(products)
 
   return (
-    <ContainerCart>
-      <header />
+    <CartContainer>
+      <Header page={1} />
       <h1>Produtos</h1>
 
       <section>
@@ -32,7 +36,13 @@ function Cart() {
           </div>
         ))}
       </section>
-    </ContainerCart>
+
+      <SubTotalComponent />
+
+      <Link to="/payment">
+        <Button>Seguir para o pagamento</Button>
+      </Link>
+    </CartContainer>
   )
 }
 
