@@ -1,3 +1,11 @@
+<h1 align="center">
+   Beleza na Web
+</h1>
+
+<p align="center">
+  <a href="iniciando-o-projeto">Iniciando Projeto</a>
+</p>
+
 ## Frontend Test
 
 Faça um fork deste repositório e finalizar o teste, submeta um pull request para o repositório que nosso time será notificado.
@@ -39,3 +47,13 @@ O teste consiste em um checkout simples contendo 3 passos (carrinho, pagamento e
 
 ### Fim:
 Ao finalizar o teste, submeta um pull request para o repositório que nosso time será notificado. Se tiver alguma observação, escreva no pull request.
+
+####  Iniciando o projeto
+- Clone este repositório usando `git clone https://github.com/milenetaborda/repo_tests_frontend.git`
+- Vá para o diretório usando: `cd repo_tests_frontend`;
+- Vá para o diretório usando: `cd belezanaweb-test-frontend`;
+- Rode o comando `yarn` para instalar todas as dependências;
+- Rode o comando `yarn global -g json-server`;
+- Rode o comando `json-server server.json -p 3333` para iniciar a REST API fake;
+- Rode o comando `yarn start` para iniciar o servidor;
+
