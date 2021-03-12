@@ -11,6 +11,7 @@ const Success = () => {
   const { user, products } = useContext(AuthContext)
 
   const response = products?.items?.map((item) => item.product)
+  const ArrCardNumber = user?.cardNumber.split('.')
 
   return (
     <>
@@ -23,7 +24,7 @@ const Success = () => {
 
         <h1>Pagamento</h1>
         <SuccessPaymentContainer>
-          <p>{user?.cardNumber}</p>
+          <p>****.****.****.{ArrCardNumber[3]}</p>
           <p>{user?.cardHolder}</p>
           <p>{user?.cardExpiringDate}</p>
         </SuccessPaymentContainer>
