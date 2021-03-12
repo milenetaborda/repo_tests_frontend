@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { Link, Redirect } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
 import { SubTotalComponent } from '../../components/SubTotal'
@@ -8,9 +7,11 @@ import { useForm } from 'react-hook-form'
 
 import { PaymentContainer } from './styles'
 import { AuthContext } from '../../context/AuthContext'
+import { maskCardNumber } from '../../utils/maskNumberCard'
+import { formatDate } from '../../utils/format'
 
 const Payment = () => {
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, errors, setValue } = useForm()
 
   const { payment } = useContext(AuthContext)
 
@@ -32,6 +33,7 @@ const Payment = () => {
             name="cardNumber"
             ref={register({ required: true })}
             placeholder="____.____.____.____"
+            onChange={(e) => setValue('cardNumber', maskCardNumber(e.target.value))}
           />
           {errors.cardNumber && <small>Card number is required.</small>}
 
@@ -51,6 +53,7 @@ const Payment = () => {
               name="cardExpiringDate"
               ref={register({ required: true })}
               placeholder="__/____"
+              onChange={(e) => setValue('cardExpiringDate', formatDate(e.target.value))}
             />
             {errors.cardExpiringDate && <small>Expiring Date is required.</small>}
 
@@ -58,7 +61,7 @@ const Payment = () => {
             <input
               type="text"
               name="cardCvv"
-              ref={register({ required: true })}
+              ref={register({ required: true, maxLength: 3 })}
               placeholder="___"
             />
             {errors.cardCvv && <small>CVV is required.</small>}
