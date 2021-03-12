@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
 import { SubTotalComponent } from '../../components/SubTotal'
@@ -16,6 +16,7 @@ const Payment = () => {
 
   const onSubmitForm = (data) => {
     payment(data)
+    window.location.replace('/success')
   }
 
   return (
