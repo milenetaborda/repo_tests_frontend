@@ -48,26 +48,28 @@ export const SuccessCartContainer = styled.div`
   padding: 15px;
 
   section {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    border: 1px solid #eee;
-    border-radius: 3px;
-    align-items: center;
-    margin: 15px;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+      border: 1px solid #eee;
+      border-radius: 3px;
+      align-items: center;
+      margin: 0 0 10px;
 
-    img {
-      height: 64px;
-      width: 64px;
-      margin: 15px;
-    }
+      img {
+        height: 64px;
+        width: 64px;
+        margin: 15px;
+      }
 
-    > p {
-      color: #212122;
-      font-size: 13px;
-      line-height: 16px;
-      text-align: center;
-      padding: 15px;
+      > p {
+        color: #212122;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        padding: 15px;
+      }
     }
   }
 `
