@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
@@ -7,13 +7,15 @@ import { SubTotalComponent } from '../../components/SubTotal'
 import { useForm } from 'react-hook-form'
 
 import { PaymentContainer } from './styles'
+import { AuthContext } from '../../context/AuthContext'
 
 const Payment = () => {
   const { register, handleSubmit, errors } = useForm()
 
+  const { payment } = useContext(AuthContext)
+
   const onSubmitForm = (data) => {
-    console.log(!!errors)
-    console.log(data)
+    payment(data)
   }
 
   return (

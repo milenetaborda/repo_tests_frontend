@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
 import Routes from './routes'
 
 import GlobalStyle from './styles/global'
@@ -7,7 +8,10 @@ import GlobalStyle from './styles/global'
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+
       <GlobalStyle />
     </BrowserRouter>
   )
