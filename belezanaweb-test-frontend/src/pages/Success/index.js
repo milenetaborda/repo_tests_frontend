@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Header } from '../../components/Header'
 import { SubTotalComponent } from '../../components/SubTotal'
 
 import { SuccessCartContainer, SuccessPaymentContainer, SuccessContainer } from './styles'
 
 import check from '../../assets/check.svg'
+import { AuthContext } from '../../context/AuthContext'
 
 const Success = () => {
+  const { user, products } = useContext(AuthContext)
+
+  const response = products?.items?.map((item) => item.product)
+
   return (
     <>
       <Header page={3} />
@@ -18,27 +23,21 @@ const Success = () => {
 
         <h1>Pagamento</h1>
         <SuccessPaymentContainer>
-          <p>****.****.****.1234</p>
-          <p>José da Silva</p>
-          <p>05/2021</p>
+          <p>{user?.cardNumber}</p>
+          <p>{user?.cardHolder}</p>
+          <p>{user?.cardExpiringDate}</p>
         </SuccessPaymentContainer>
 
         <h1>Produtos</h1>
 
         <SuccessCartContainer>
           <section>
-            <img
-              src="https://lh3.googleusercontent.com/proxy/9nJ9oySucWRAP4Ji2DIw-DVnTSUM4sGqXbSEZMDRenF4Ww4QwfcCbKkpZ4Q3rgcL-4ucmWHJNFKzo6grm72gKpFiIpIF0DwBWx4tzx-muqN3"
-              alt="Imagem do produto"
-            />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </section>
-          <section>
-            <img
-              src="https://lh3.googleusercontent.com/proxy/9nJ9oySucWRAP4Ji2DIw-DVnTSUM4sGqXbSEZMDRenF4Ww4QwfcCbKkpZ4Q3rgcL-4ucmWHJNFKzo6grm72gKpFiIpIF0DwBWx4tzx-muqN3"
-              alt="Imagem do produto"
-            />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            {response?.map((product) => (
+              <div key={product.sku}>
+                <img src={product.imageObjects[0].small} alt="Imagem do produto" />
+                <p>{product.name}</p>
+              </div>
+            ))}
           </section>
         </SuccessCartContainer>
 

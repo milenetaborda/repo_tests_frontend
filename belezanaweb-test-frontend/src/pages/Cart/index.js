@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
 import { SubTotalComponent } from '../../components/SubTotal'
-import api from '../../sevices/api'
 import { formatPrice } from '../../utils/format'
 import { Link } from 'react-router-dom'
 
 import { CartContainer } from './styles'
+import { AuthContext } from '../../context/AuthContext'
 
 const Cart = () => {
-  const [products, setProducts] = useState([])
+  const { products } = useContext(AuthContext)
 
-  useEffect(() => {
-    api.get('/products').then((response) => {
-      setProducts(response.data)
-    })
-  }, [])
-
-  const response = products.items?.map((item) => item.product)
-  console.log(products)
+  const response = products?.items?.map((item) => item.product)
 
   return (
     <CartContainer>
@@ -27,7 +20,7 @@ const Cart = () => {
 
       <section>
         {response?.map((product) => (
-          <div key={product.name}>
+          <div key={product.sku}>
             <img src={product.imageObjects[0].small} alt="Imagem do produto" />
             <span>
               <p>{product.name}</p>
