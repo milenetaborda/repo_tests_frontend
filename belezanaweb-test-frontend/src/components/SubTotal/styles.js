@@ -5,6 +5,7 @@ export const SubTotalContainer = styled.div`
   border: 1px solid #ccc;
   margin: 20px 0;
   text-transform: uppercase;
+  background: transparent;
 
   > div {
     display: flex;

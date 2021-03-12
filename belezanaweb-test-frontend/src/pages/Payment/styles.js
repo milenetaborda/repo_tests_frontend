@@ -18,7 +18,7 @@ export const PaymentContainer = styled.div`
       position: absolute;
     }
 
-    > div {
+    > div.container-flex {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -50,7 +50,8 @@ export const PaymentContainer = styled.div`
         width: 100%;
         height: 45px;
         border-radius: 3px;
-        border: 1px solid ${(props) => (props.isError ? '#E7E7E7' : 'red')};
+        //border: 1px solid ${(props) => (props.isError ? '#E7E7E7' : 'red')};
+        border: 1px solid #e7e7e7;
         box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
         background-color: #fff;
         padding: 12px;
