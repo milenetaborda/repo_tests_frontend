@@ -19,12 +19,12 @@ const Payment = () => {
   }
 
   return (
-    <PaymentContainer isError={!!errors}>
+    <PaymentContainer>
       <Header page={2} />
       <h1>Cartão de Crédito</h1>
 
-      <form action="#">
-        <div>
+      <form onSubmit={handleSubmit(onSubmitForm)}>
+        <div className="container-flex">
           <label>Número do cartão:</label>
           <input
             type="text"
@@ -63,13 +63,11 @@ const Payment = () => {
             {errors.cardCvv && <small>CVV is required.</small>}
           </div>
         </div>
-      </form>
 
-      <SubTotalComponent />
+        <SubTotalComponent />
 
-      <Link to="/success" onClick={handleSubmit(onSubmitForm)}>
         <Button>Finalizar o pedido</Button>
-      </Link>
+      </form>
     </PaymentContainer>
   )
 }
