@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
 import { SubTotalComponent } from '../../components/SubTotal'
